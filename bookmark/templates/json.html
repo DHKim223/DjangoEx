@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JSON 연습 </title>
+		<script type="text/javascript">
+			//<!--
+			document.write( "<h2> JSON 연습 </h2>" )
+			// Javascript Object Notation 
+			var countries = { ko:"대한민국", uk:"영국", jp:"일본" };
+			document.write( countries.ko + "<br>" );
+			document.write( countries['ko'] + "<br>" );
+			
+			var kim = {name:"김유신", age:30, tel:"1111-2222"};
+			document.write( "이름 : " + kim.name + "<br>" );
+			document.write( "나이 : " + kim.age + "<br>" );
+			document.write( "전화번호 : " + kim.tel + "<br>" );
+			
+			var employees = [
+				{name:"이순신", age:20},
+				{name:"김유신", age:30},
+				{name:"홍길동", age:25}
+			]
+			for( var i=0; i<employees.length; i++ ) {
+				document.write( "이름 : " + employees[i].name 
+						+ " 나이 : " + employees[i].age + "<br>");
+			}
+			
+			var emps = {
+				"person" : [
+					{"name":"홍길동", "age":20},
+					{"name":"이순신", "age":25},
+					{"name":"김유신", "age":30}
+				]	
+			}
+			for( var i=0; i<emps.person.length; i++ ) {
+				document.write( "이름 : " + emps.person[i].name 
+						+ " 나이 : " + emps.person[i].age + "<br>");
+			}
+			
+			document.write( "<h2> 클래스 JSON 표기 </h2>" )
+			function User( name, age, tel ) {
+				this.name = name;
+				this.age = age;
+				this.tel = tel;
+			}
+			User.prototype = {
+				setName : function( name ) { this.name = name; },
+				setAge : function( age ) { this.age = age },
+				setTel : function( tel ) { this.tel = tel },
+				getName : function() { return this.name },
+				getAge : function() { return this.age },
+				getTel : function() { return this.tel }	
+			}
+			var kim = new User();
+			kim.setName( "김유신" );
+			kim.setAge( 30 );
+			kim.setTel( "1111-2222" );
+			document.write( "이름 : " + kim.getName() + "<br>");
+			document.write( "나이 : " + kim.getAge()  + "<br>");
+			document.write( "전화번호 : " + kim.getTel()  + "<br>");
+			
+			
+			
+			
+			
+			
+			//-->
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,1063 @@
+[2021-09-27 10:17:30] ERROR [django.request:224] Internal Server Error: /member/mainpage
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: '{{memid}}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 13, in mainpage
+    template = loader.get_template("mainpage.html")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Python\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Python\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Python\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Python\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Python\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Python\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 964, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 897, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 166, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 177, in translate_token
+    return self.create_var(token)
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 900, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{{memid}}' from '{{memid}}'
+[2021-09-27 10:17:30] ERROR [django.request:224] Internal Server Error: /member/mainpage
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 175, in translate_token
+    op = OPERATORS[token]
+KeyError: '{{memid}}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 13, in mainpage
+    template = loader.get_template("mainpage.html")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Python\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Python\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Python\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Python\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Python\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Python\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 964, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 897, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 166, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "C:\Python\lib\site-packages\django\template\smartif.py", line 177, in translate_token
+    return self.create_var(token)
+  File "C:\Python\lib\site-packages\django\template\defaulttags.py", line 900, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Python\lib\site-packages\django\template\base.py", line 662, in __init__
+    raise TemplateSyntaxError("Could not parse the remainder: '%s' "
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{{memid}}' from '{{memid}}'
+[2021-09-27 10:17:30] ERROR [django.server:161] "GET /member/mainpage HTTP/1.1" 500 149354
+[2021-09-27 10:46:12] ERROR [django.request:224] Internal Server Error: /member/mainpage
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 14, in mainpage
+    memid = request.session["memid"]
+  File "C:\Python\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'memid'
+[2021-09-27 10:46:12] ERROR [django.request:224] Internal Server Error: /member/mainpage
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 14, in mainpage
+    memid = request.session["memid"]
+  File "C:\Python\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'memid'
+[2021-09-27 10:46:12] ERROR [django.server:161] "GET /member/mainpage HTTP/1.1" 500 68309
+[2021-09-27 10:46:50] INFO [member.views:59] confirm : 0
+[2021-09-27 11:16:49] INFO [member.views:60] confirm : 0
+[2021-09-27 11:16:57] INFO [member.views:60] confirm : 0
+[2021-09-27 11:17:10] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:10] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:10] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:10] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:10] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:10] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:10] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:10] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:10] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:10] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:11] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:11] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:11] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:11] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:11] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:11] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:11] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:11] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:12] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:12] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:12] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:12] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:17:15] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 11:17:15] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 11:17:15] ERROR [django.server:161] "POST /member/registerpro HTTP/1.1" 500 87805
+[2021-09-27 11:17:24] INFO [member.views:60] confirm : 1
+[2021-09-27 11:17:30] WARNING [django.security.csrf:224] Forbidden (CSRF token missing or incorrect.): /member/sidcheck
+[2021-09-27 11:17:30] WARNING [django.server:161] "POST /member/sidcheck HTTP/1.1" 403 2544
+[2021-09-27 11:58:37] WARNING [django.request:224] Not Found: /member/deletepro
+[2021-09-27 11:58:37] WARNING [django.request:224] Not Found: /member/deletepro
+[2021-09-27 11:58:37] WARNING [django.server:161] "POST /member/deletepro HTTP/1.1" 404 3902
+[2021-09-27 12:12:07] WARNING [django.request:224] Not Found: /member/deletepro
+[2021-09-27 12:12:07] WARNING [django.request:224] Not Found: /member/deletepro
+[2021-09-27 12:12:07] WARNING [django.server:161] "POST /member/deletepro HTTP/1.1" 404 3902
+[2021-09-27 12:14:22] INFO [member.views:60] confirm : 0
+[2021-09-27 12:14:44] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 12:14:44] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 12:14:44] ERROR [django.server:161] "POST /member/registerpro HTTP/1.1" 500 88026
+[2021-09-27 12:19:19] INFO [member.views:60] confirm : 0
+[2021-09-27 13:08:23] WARNING [django.request:224] Not Found: /member/modifypro
+[2021-09-27 13:08:23] WARNING [django.request:224] Not Found: /member/modifypro
+[2021-09-27 13:08:23] WARNING [django.server:161] "GET /member/modifypro HTTP/1.1" 404 4425
+[2021-09-27 13:08:29] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    dto = Member.objects.get(id=id)
+  File "C:\Python\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+member.models.Member.DoesNotExist: Member matching query does not exist.
+[2021-09-27 13:08:29] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    dto = Member.objects.get(id=id)
+  File "C:\Python\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python\lib\site-packages\django\db\models\query.py", line 435, in get
+    raise self.model.DoesNotExist(
+member.models.Member.DoesNotExist: Member matching query does not exist.
+[2021-09-27 13:08:29] ERROR [django.server:161] "POST /member/modifyview HTTP/1.1" 500 77562
+[2021-09-27 13:11:32] INFO [member.views:60] confirm : 0
+[2021-09-27 13:11:41] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 13:11:41] ERROR [django.request:224] Internal Server Error: /member/registerpro
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 37, in registerpro
+    return redirect("login")
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 41, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Python\lib\site-packages\django\shortcuts.py", line 130, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Python\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Python\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[2021-09-27 13:11:41] ERROR [django.server:161] "POST /member/registerpro HTTP/1.1" 500 88026
+[2021-09-27 13:15:21] INFO [member.views:60] confirm : 1
+[2021-09-27 13:15:33] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 130, in modifyview
+    template = loader.get_template("modifyview")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: modifyview
+[2021-09-27 13:15:33] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 130, in modifyview
+    template = loader.get_template("modifyview")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: modifyview
+[2021-09-27 13:15:33] ERROR [django.server:161] "POST /member/modifyview HTTP/1.1" 500 75475
+[2021-09-27 13:16:37] WARNING [django.request:224] Not Found: /favicon.ico
+[2021-09-27 13:16:37] WARNING [django.request:224] Not Found: /favicon.ico
+[2021-09-27 13:16:37] WARNING [django.server:161] "GET /favicon.ico HTTP/1.1" 404 2438
+[2021-09-27 13:16:46] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 130, in modifyview
+    template = loader.get_template("modifyview")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: modifyview
+[2021-09-27 13:16:46] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 130, in modifyview
+    template = loader.get_template("modifyview")
+  File "C:\Python\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: modifyview
+[2021-09-27 13:16:46] ERROR [django.server:161] "POST /member/modifyview HTTP/1.1" 500 75496
+[2021-09-27 13:17:33] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:17:33] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:17:33] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76013
+[2021-09-27 13:57:13] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:13] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:13] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:14] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:14] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:14] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:14] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:14] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:14] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:15] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:57:16] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:16] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:57:16] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:58:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:58:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:58:38] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:58:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:58:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:58:39] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:59:10] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:10] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:10] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:59:12] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:12] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 127, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:12] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76150
+[2021-09-27 13:59:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:38] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76111
+[2021-09-27 13:59:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:38] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:38] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76111
+[2021-09-27 13:59:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:39] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76111
+[2021-09-27 13:59:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:39] ERROR [django.request:224] Internal Server Error: /member/modifyview
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'passwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Python\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\BigData\Workspace\DjangoEx\member\views.py", line 128, in modifyview
+    passwd = request.POST["passwd"]
+  File "C:\Python\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'passwd'
+[2021-09-27 13:59:39] ERROR [django.server:161] "GET /member/modifyview HTTP/1.1" 500 76111

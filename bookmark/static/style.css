@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* Extenal Style */
+body {
+	color : #fff2f2;
+	font-family : Georgia, serif;
+	/*
+	background-color : #FFA7A7;	 
+	background-image : url( "../static/c.jpg" );
+	background-repeat : no-repeat; 
+	background-position : 250px 100px;
+	background-attachment : fixed;
+	*/
+	background : url( "../static/c.jpg" ) no-repeat 250px 100px fixed #FFA7A7 ;
+} 
+
+p {		
+	font-size : 95%; /*1.1em;*/ /*15pt;*/ /*15px;*/	
+	font-style : italic;
+	font-weight : bold;
+	
+	text-align : justify;
+	text-decoration : underline;
+	text-indent : 5px;
+	text-shadow : 2px 3px gray;
+	line-height : 30px;
+	word-spacing : 5px; 
+	letter-spacing : 5px; 
+}
+
+ul {
+	list-style-type: square;	
+}
+
+a:link, a:visited {
+	text-decoration : none;	
+	color : blue;
+}
+a:hover, a:action {
+	color : white;
+}
+
+#point {							/* 아이디 선택자 */
+	text-decoration : none;
+	font-weight : normal;
+	font-style : normal;
+	text-shadow : none;
+}
+
+.value {							/* 클래스 선택자 */
+	color : red;
+}
+.strong {
+	background-color : white;
+}
+p.value {
+	color : gold;
+}
+p#point {
+	color : red;
+}
+p#point.strong {
+	color : green;
+}
+
+span b {						/* 후손선택자 */
+	color : red;
+}
+
+span > b {						/* 자식선택자 */
+	color : blue;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

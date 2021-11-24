@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery 함수</title>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			// <!--
+			$(document).ready(
+				function() {	
+					// 클래스 속성 추가 / 제거
+					$("h4").first().addClass("select");
+					$("h4").last().addClass("select");					
+					
+					$("h4").eq(-1).removeClass("select");
+					
+					$("h4").each( function( index, item ) {
+							if( $(item).is(".select") ) {
+								$(item).css("color", "red");
+							}
+						}			
+					);
+					
+					// attr( name )				속성값을 주거나 가져온다. 
+					var result = document.getElementById( "result" );
+					var msg = "";
+					$("img").each( function( index, item ) {
+							msg += "파일명 " + $(item).attr("src") + "<br>";
+						} 
+					);				
+					
+					// attr( name, value )
+					$("img").first().attr( "width", "200px" ).attr( "height", "100px");
+										
+					// attr( object )			JSON 표기법
+					$("img").eq(1).attr( {
+							"width" : "200px",
+							"height" : "100px",
+						}
+					)				
+					
+					// attr( name, function( index, attr ) {} )
+					$("img").attr( "width", function( index ) {
+							return ( index + 1) * 100;
+						}				
+					).attr( "height", function( index ) {
+							return ( index + 1 ) * 100;
+						} 
+					);
+					
+					$("img").attr( {
+							"width" : function( index ) {
+								return (index + 1) * 100;	
+							},
+							"height" : function( index ) {
+								return ( index + 1) * 100;	
+							}						
+						}					
+					);
+					
+					// css( name )
+					msg += $("h5").css( "color" ) + "<br>"
+						+ $("h5").css("background-color") + "<br><br>";
+					
+					// css( name, value )
+					$("h5").css( "color", "red" ).css( "background", "gray" );
+					
+					// css( object )
+					$("h5").css( {
+							"color" : "blue",
+							"background" : "white",
+						}
+					);
+					
+					// css( name, function( index, style ) {} )
+					var m = ["red", "blue", "green"]
+					$("h5").css( "color", 
+						function( index, style ) {
+							return m[index];
+						} 
+					);
+									
+			
+					result.innerHTML = msg;
+				}			
+			);
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> JQuery 문서 함수 </h2>
+		<h5> 첫번째 </h5>
+		<h5> 두번째 </h5>
+		<h5> 세번째 </h5>
+		<br><br>		
+		
+		
+		<div id="result"></div>
+		<img src="{% static 'a.jpg' %}" border="0"><br>
+		<img src="{% static 'b.jpg' %}" border="0"><br>
+		<img src="{% static 'c.jpg' %}" border="0"><br>
+		<br>		
+		
+		<h4> 게임 </h4>	
+		<h4> 등산 </h4>
+		<h4> 캠핑 </h4>
+		<h4> 운동 </h4>
+		<h4> 독서 </h4>	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

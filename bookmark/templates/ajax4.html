@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ajax</title>
+		<script src="{% static 'jquery-3.6.0.js'%}"></script>
+		<script type="text/javascript">
+			// <!--
+			$(document).ready(
+				function() {
+					
+					$("input[value='확인']").on(
+						"click",
+						function( event ) {
+							
+							/*
+							// XML / JSON 처리
+							$.ajax(
+								{
+									url : "{% static 'book.xml' %}",
+									dataType : "xml",
+									success : function( xmldoc ) {
+										// $("#result").html( "정상종료<br>" );
+										var msg = "";
+										var book = eval( "(" + $(xmldoc).find("book").text() + ")" );
+										for( var i=0; i<book.length; i++ ) {
+											msg += "이름 : " + book[i].title + "<br>"
+												+ "저자 : " + book[i].author + "<br>"
+												+ "정가 : " + book[i].price + "<br><br>";
+										}
+										$("#result").html( msg );
+									},
+									error : function( e ) {
+										$("#result").html( e.responseText );
+									}
+								}		
+							);
+							*/
+							
+							// JSON 처리
+							$.ajax(
+								{
+									url : "{% static 'books.txt' %}",
+									dataType : "text",
+									success : function( data ) {
+										// $("#result").html( "정상종료<br>" );
+										var msg = "";
+										var books = eval( "(" + data + ")" );
+										for( var i=0; i<books.book.length; i++ ) {
+											msg += "제목 : " + books.book[i].title + "<br>"
+												+ "저자 : " + books.book[i].author + "<br>"
+												+ "정가 : " + books.book[i].price + "<br><br>";
+										}		
+										$("#result").html( msg );
+									},
+									error : function( e ) {
+										$("#result").html( e.responseText );
+									}
+								}		
+							);
+							
+							
+						}
+					);
+					
+				}		
+			);
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> XML / JSON 데이터 처리 </h2>
+		책목록 : <input type="button" value="확인"> <br><br>
+		<div id="result"></div>
+	
+	</body>
+</html>
+

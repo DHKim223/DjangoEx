@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>	<!-- HTML5 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5</title>
+	</head>
+	<body>
+		<h2> Simple </h2>
+		<ruby>
+			<span>大韓民國</span>
+			<rt>대한민국</rt>	
+			<rp>대한민국</rp>		
+		</ruby>		
+		<br><br>
+		<audio controls>
+			<source src="{% static 'Kalimba.mp3'%}"/>
+			<source src="{% static 'Kalimba.ogg'%}"/> 
+		</audio>
+		<br><br>
+		<video controls width="300" height="150">
+			<source src="{% static 'Wildlife.mp4' %}"/>
+		</video>
+		
+		<h2> Strong Web Form </h2>
+		<form action=""> 
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> <input type="text" name="name" autofocus> </td>
+				</tr>
+				<tr>
+					<th> 비밀번호 </th>
+					<td> <input type="password" name="passwd" placeholder="필수입력"> </td>
+				</tr>
+				<tr>
+					<th> 가입일자 </th>
+					<td> <input type="datetime-local" name="logtime"> </td>
+				</tr>
+				<tr>
+					<th> 일자 </th>
+					<td> <input type="date" name="today"> </td>
+				</tr>
+				<tr>
+					<th> 시각 </th>
+					<td> <input type="time" name="now"> </td>
+				</tr>
+				<tr>
+					<th> 월 </th>
+					<td> <input type="month" name="month"> </td>
+				</tr>
+				<tr>
+					<th> 주 </th>
+					<td> <input type="week" name="week"> </td>
+				</tr>
+				<tr>
+					<th> 이메일 </th>
+					<td> <input type="email" name="email"> </td>
+				</tr>
+				<tr>
+					<th> 홈페이지 </th>
+					<td> <input type="url" name="home"> </td>
+				</tr>
+				<tr>
+					<th> 색상 </th>
+					<td> <input type="color" name="color"> </td>
+				</tr>
+				<tr>
+					<th> 검색 </th>
+					<td> <input type="search" name="search"> </td>
+				</tr>
+				<tr>
+					<th> 전화번호 </th>
+					<td> <input type="tel" name="tel"> </td>
+				</tr>
+				<tr>
+					<th> 몸무게 </th>
+					<td> <input type="number" name="kg"> </td>
+				</tr>
+				<tr>
+					<th> 키 </th>
+					<td> 100 <input type="range" name="tall" min=100 max=200 step=5> 200					
+				</tr>
+				<tr>
+					<th> 파일 </th>
+					<td> <input type="file" name="file" multiple accept="image/*"> </td>
+				</tr>			
+				<tr>
+					<th colspan="2">
+						<input type="submit" formaction="" value="전송">
+					</th>
+				</tr>
+			</table>
+		</form>	
+		
+		<form oninput="r.value=parseInt(a.value)+parseInt(b.value)">
+			<input type="number" name="a" step="any"> 
+			+ <input type="number" name="b" step="any">
+			= <output name="r"></output> <br>		
+		</form>
+		<br>
+		0 <progress max="10" value="8"></progress> 10 <br>
+		0 <meter min="0" max="10" low="4" high="7" value="8"></meter> 10 <br>
+		<br>
+		<div contenteditable="true">
+			<div> 편집가능 </div> <br>
+			<div contenteditable="false"> 편집불가능</div>			
+		</div>
+		
+		<h2> 시멘틱 태그 </h2>
+		<style type="text/css">
+			.header, .footer, .aside, .article, .section {
+				border: 1px black solid;
+				margin : 10px;
+				float : left;
+			}		
+			.header {
+				width : 300px;
+				height : 100px;				
+			}
+			.footer {
+				width : 300px;
+				height : 100px;
+				clear : left;
+			}
+			.aside {
+				width: 100px;
+				height : 200px;
+				clear : left;
+			}
+			.article {
+				width : 180px;
+				height : 200px;
+			}
+			.section {
+				width : 170px;
+				height : 55px;
+				margin: 5px;
+			}
+		</style>
+		<div class="header"></div>
+		<div class="aside"></div>
+		<div class="article">
+			<div class="section"></div>
+			<div class="section"></div>
+			<div class="section"></div>
+		</div>
+		<div class="footer"></div>
+		
+		<br><br>
+		<style type="text/css">
+			header, footer, aside, article, section {
+				border: 1px black solid;
+				margin : 10px;
+				float : left;
+			}		
+			header {
+				width : 300px;
+				height : 100px;	
+				clear : left;			
+			}
+			footer {
+				width : 300px;
+				height : 100px;
+				clear : left;
+			}
+			aside {
+				width: 100px;
+				height : 200px;
+				clear : left;
+			}
+			article {
+				width : 180px;
+				height : 200px;
+			}
+			section {
+				width : 170px;
+				height : 55px;
+				margin: 5px;
+			}
+		</style>
+		
+		<header></header>
+		<aside></aside>
+		<article>
+			<section></section>
+			<section></section>
+			<section></section>
+		</article>
+		<footer></footer>
+		<br><br>
+		
+		당신이 검색한 단어는 <mark>로또</mark>입니다. <br>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

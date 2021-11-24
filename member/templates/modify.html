@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>회원관리</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'style_member.css'%}">
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script src="{% static 'script_member.js'%}"></script>
+	</head>
+	<body>
+		<h2> 회원정보수정 </h2>
+		{% csrf_token %}
+		<form method="post" action="modifyview">
+			<table>
+				<tr>
+					<th colspan="2">
+						{% if not msg %}
+							비밀번호를 다시 확인하세요
+						{% endif %}
+						{% if msg %}
+							{{ msg }}
+						{% endif %}	
+					</th>
+				</tr>
+				<tr>
+					<th> 비밀번호 </th>
+					<td> <input class="input" type="password" name="passwd" autofocus> </td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input class="inputbutton" type="submit" value="수정">
+						<input class="inputbutton" type="button" value="수정취소"
+							onclick="location='mainpage'"> 
+					</th>
+				</tr>
+			</table>		
+		</form>
+	</body>
+</html>

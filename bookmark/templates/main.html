@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>							<!-- HTML5 버전 -->
+<html>
+	<head>
+		<meta charset="utf-8">				<!-- HTML 주석 -->
+		<title> HTML 연습 </title>
+	</head>
+	<body background="{% static 'c.jpg' %}">
+		<h2 align="center"> HTML 연습 </h2>		
+		<!-- form -->
+		<form method="POST" action="">
+		<table border="1">
+			<tr>
+				<th> 이름 </th>
+				<td> <input type="text" name="name"> </td>
+			</tr>
+			<tr>
+				<th> 비밀번호 </th>
+				<td> <input type="password" name="passwd"> </td>
+			</tr>
+			<tr>
+				<th> 성별 </th>
+				<td>
+					<label><input checked type="radio" name="gender" value="1"> 남자</label>
+					<label><input type="radio" name="gender" value="2"> 여자</label>					
+				</td>
+			</tr>
+			<tr>
+				<th> 취미 </th>
+				<td>
+					<input checked type="checkbox" name="hobby" value="1"> 게임
+					<input type="checkbox" name="hobby" value="2"> 운동
+					<input type="checkbox" name="hobby" value="3"> 등산
+					<input type="checkbox" name="hobby" value="4"> 캠핑
+				</td>
+			</tr>
+			<tr>
+				<th> 자기소개 </th>
+				<td>
+					<textarea rows="5" cols="40" readonly></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th> 주소 </th>
+				<td>
+					<select name="address" size="8" multiple>	<!-- choice / list -->
+						<option value="1"> 서울 </option>
+						<option value="2"> 대전 </option>
+						<option selected value="3"> 대구 </option>
+						<option value="4"> 부산 </option>
+						<option value="5"> 전주 </option>
+						<option value="6"> 광주 </option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<input type="submit" value="전송">		<!-- action 페이지로 이동 -->
+					<input type="reset" value="취소">
+					<input type="image" src="{% static 'ok.png' %}">
+					<input type="file" value="전송">
+				</th>
+			</tr>		
+		</table>	
+		</form>
+		<br><br>
+		
+				
+		<!-- iframe -->
+		<iframe width="200" height="200" src="csstest.html"></iframe>
+		<frameset row="1" cols="2">
+			<frame src="http://www.google.com">
+			<frame src="http://www.daum.net">
+		</frameset>
+				
+		<!-- table -->
+		<table border="1" align="center">
+			<tr>
+				<td width="150" height="50" colspan="3"> 1 </td>
+				<!-- 
+				<td width="50" align="center"> 2 </td>
+				<td width="50" valign="bottom"> 3 </td>
+				-->
+			</tr>
+			<tr align="center">
+				<td height="100" rowspan="2"> 4 </td>
+				<td> 5 </td>
+				<td> 6 </td>
+			</tr>
+			<tr>
+				<!-- <td height="50"> 7 </td> -->
+				<td> 8 </td>
+				<td> 9 </td>
+			</tr>
+		</table>		
+		
+		
+		
+		
+		
+		<a href="http://www.naver.com"> 네이버 </a> <br>
+		<a href="http://www.daum.net"> 다음 </a> <br>
+		<a href="csstest.html"> CSS </a> <br>		<!-- 404 파일이름이나 경로가 틀린경우 -->	
+		
+		
+		<img src="{% static 'love.png' %}" border="0" width="200">		
+					
+		<center>		
+		<b>하나</b> <br>
+		<u>둘</u> <br>
+		<i>셋</i> <br>
+		<strike>하나</strike> &nbsp;&nbsp;<tt>둘</tt> &nbsp;&nbsp;&nbsp;<kbo>셋</kbo> <br>
+		</center>
+		
+		<font color="red" size="+1" face="궁서체"> 우리나라</font> 대한민국 <br>
+		
+		<hr size="5" width="80%" noshade color="blue">		<!-- 반응형웹 -->
+		
+		<pre>
+		하나
+		둘 
+		셋
+		</pre>
+		<br>
+		<ul>
+			<li> 사과 </li>
+			<li> 딸기 </li>
+			<li> 바나나 </li>
+		</ul>
+		<br>
+		<ol>
+			<li> 짜장면 </li>
+			<li> 짬뽕 </li>
+			<li> 탕수육 </li>
+		</ol>
+		
+		
+		
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+

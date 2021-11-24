@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 방명록 </title>
+	</head>
+	<body>
+		{% block title %} <h2> 방명록 </h2> {% endblock %}
+		
+		{% block content %}
+		<br>
+		{{gbcount}} 개의 글이 있습니다.
+		<input type="button" value="글쓰기" onclick="location='write'"> <br><br>
+		
+		{% for gb in gblist %}	
+			{% csrf_token %}
+			<form method="post" action="passwdck">	
+				<input type="hidden" name="idx" value="{{gb.idx}}">
+				<table border="1">
+					<tr>
+						<th> 이름 </th>
+						<td> {{gb.name}} </td>
+						<th> 작성일 </th>
+						<td> {{gb.postdate|date:"Y-m-d"}} </td>
+					</tr>
+					<tr>
+						<th> 이메일 </th>
+						<td colspan="3"> {{gb.email}} </td>
+					</tr>
+					<tr>
+						<th> 내용 </th>
+						<td colspan="3"><pre>{{gb.content}}</pre></td>
+					</tr>
+					<tr>
+						<th> 비밀번호 </th>
+						<td><input type="password" name="passwd"></td>
+						<th colspan="2">
+							<input type="submit" value="수정/삭제">
+						</th>
+					</tr>		
+				</table>
+			</form>			
+		{% endfor %}
+		
+		{% endblock %}
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Javascript 연습 </title>
+		<style type="text/css">
+			/* 스타일시트 영역 */
+		</style>
+		<script type="text/javascript">
+			//<!--
+			/* 자바스크립트 영역 */
+			document.write( "<h2> Javascript - Simple </h2><br>" );
+			document.write( 10 + "<br>" );
+			document.write( "ABC" + "<br>" );
+			document.write( 10+20 + "<br>" )
+			
+			// alert( "경고" )
+			document.write( typeof( 1234 ) + "<br>" );
+			document.write( typeof( 'ABC' ) + "<br>" );
+			document.write( typeof( "ABC" ) + "<br>" );
+			document.write( typeof( 10.5 ) + "<br>" );
+			document.write( typeof( 'A' ) + "<br>" );
+			
+			// var str = prompt( "값 입력 : " );
+			// document.write( str + "<br>" );
+			
+			// var con = confirm( "할거냐 말거냐?" );
+			// document.write( con + "<br>" );
+			
+			// print();
+			
+			// 배열
+			// Java				int m[] = { 10, 20, 30, 40, 50 }
+			// Python list			m = [10, 20, 30, 40, 50]	
+			var m = [10, 20, 30, 40, 50];
+			document.write( m[0] + "<br>" );
+			
+			// Java				int n[] = new int[5]
+			// Python				n = []
+			var n = []
+			
+			// 자동형변환
+			document.write( '5 + 2' + "<br>" );	// 5 + 2
+			document.write( '5' + 2 + "<br>" );	// 52
+			document.write( '5' + '2' + "<br>" );	// 52
+			document.write( 5 + 2 + "<br>" );		// 7
+			
+			document.write( '5 - 2' + "<br>" );	// 5 - 2
+			document.write( '5' - 2 + "<br>" );	// 3
+			document.write( '5' - '2' + "<br>" );	// 3
+			document.write( 5 - 2 + "<br>" );		// 3			
+			
+			document.write( '5 / 2' + "<br>" )	;	// 5 / 2
+			document.write( '5' / 2 + "<br>" )	;	// 2.5
+			document.write( '5' / '2' + "<br>" );	// 2.5
+			document.write( 5 / 2 + "<br>" );		// 2.5	
+			
+			// 강제형변환
+			document.write( typeof( Number( "10" ) ) + "<br>" );
+			document.write( typeof( String( 10 ) ) + "<br>" );
+			
+			// 일치연산자
+			if( "" == false ) document.write( "같다<br>" );
+			if( 0 == false ) document.write( "같다<br>" );
+			if( 0 == "" ) document.write( "같다<br>" )	;		
+			if( 20 == "20" ) document.write( "같다<br>" );
+			
+			if( NaN ) document.write( "true<br>" );
+			else document.write( "false<br>" );
+			if( null ) document.write( "true<br>" );
+			else document.write( "false<br>" );
+			if( "" ) document.write( "true<br>" );
+			else document.write( "false<br>" );
+			
+			if( "" === false ) document.write( "같다<br>" );
+			else document.write( "다르다<br>" )
+			if( 0 === false ) document.write( "같다<br>" );
+			else document.write( "다르다<br>" )
+			if( 0 === "" ) document.write( "같다<br>" )	;
+			else document.write( "다르다<br>" )	
+			if( 20 === "20" ) document.write( "같다<br>" );
+			else document.write( "다르다<br>" )
+			
+			// Python
+			// if 조건 : 실행문
+			// elif 조건 : 실행문
+			// else : 실행문
+			
+			// Java Javascript
+			// if( 조건 ) { 실행문 }
+			// else if( 조건 ) { 실행문 }
+			// else { 실행문 }
+			
+			// switch ~ case
+			// Java			() 안에 정수, 문자, 정수로 떨어지는 식, 문자열이 올 수 있다
+			//					논리값이 올 수 없다.
+			// Python			switch ~ case 없다.
+			// Javascipt		() 논리값이 올 수 있다.
+			
+			var now = new Date();
+			var hour = now.getHours()			
+			switch( true ) {
+			case hour < 12 : document.write( "오전<br>" ); break;
+			case hour < 18 : document.write( "오후<br>" ); break;
+			default : document.write( "밤<br>" );
+			}
+			
+			var age = 20;
+			switch( parseInt( age / 30 ) ) {
+			case 4 :
+			case 3 :
+			case 2 : document.write( "노년<br>"); break;
+			case 1 : document.write( "청년<br>"); break;
+			default : document.write( "어린이<br>" );			
+			}
+			
+			// 점수를 입력받아서 
+			// 90점이상 A학점 80점이상 B학점 70점이상 C학점 60점이상 D학점 나머지 F학점 
+			// 0~100 사이가 아니면 잘못입력
+			/*
+			var score = prompt();			
+			if( score >= 0 && score <= 100 ) {
+				switch( parseInt( score / 10 ) ) {
+				case 10 :
+				case 9 : document.write( "A학점<br>" ); break;
+				case 8 : document.write( "B학점<br>" ); break;
+				case 7 : document.write( "C학점<br>" ); break;
+				case 6 : document.write( "D학점<br>" ); break;
+				default : document.write( "F학점<br>" );
+				}				
+			} else {
+				document.write( "잘못입력<br>" );
+			}
+			*/
+			
+			// 짧은 조건문
+			// &&			앞의 조건이 거짓이면 뒤 조건은 실행하지 않는다.
+			// || 			앞의 조건이 참이년 뒤 조건은 실행하지 않는다. 
+			true && document.write( "실행한다.<br>" );
+			false && document.write( "실행하지 않는다.<br>" );
+			true || document.write( "실행하지 않는다.<br>" );
+			false || document.write( "실행한다.<br>" );
+			
+			// 반복문
+			var m = [ "사과", "딸기", "바나나", "배" ]
+			for( var i=0; i<m.length; i++ ) {
+				document.write( m[i] + "<br>" );
+			}
+			for( var i in m ) {
+				document.write( m[i] + "<br>" );
+			}
+			
+			// 다중반복문
+			document.write( "<h3> 구구단 </h3>" );
+			document.write( "<table border='1'>" )
+			document.write( "<tr>" );
+			for( var i=2; i<10; i++ ) {
+				document.write( "<th>" );	
+					document.write( i + "단" );
+				document.write( "</th>" );
+			}			
+			document.write( "</tr>" );
+			for( var i=1; i<10; i++ ) {			// 곱해지는 수
+				document.write( "<tr>" );
+				for( var j=2; j<10; j++ ) {		// 단
+					document.write( "<td>" );
+						document.write( j + " * " + i + " = " + i*j );
+					document.write( "</td>" );
+				}
+				document.write( "</tr>" );
+			}
+			document.write( "</table>" )
+			
+	
+			//-->
+		</script>		
+	</head>
+	<body>
+		<h2> Javascript - Simple </h2>
+	
+	</body>
+</html>
+
+
+
+
+
+

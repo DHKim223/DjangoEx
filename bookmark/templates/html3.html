@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> HTML5 </title>
+		<script type="text/javascript">
+			// <!--
+			var db = null;
+			window.onload = function() {
+				var result = document.getElementById( "result" );
+				if( window.openDatabase ) {
+					result.innerHTML = "Web SQL을 지원합니다.<br>";
+				} else {
+					result.innerHTML = "Web SQL을 지원하지 않습니다.<br>";
+					return;
+				}
+				
+				db = openDatabase( "mydb", "1.0", "회원관리", 1024*1024*5 );
+				db.transaction(
+					function( tx ) {
+						tx.executeSql(
+							"create table member(" 
+							+ 	"name varchar2(30) not null,"
+							+ 	"age number(3) not null,"
+							+ 	"tel varchar2(30),"
+							+	"address varchar2(100)"							
+							+ ")"		
+						);
+					},
+					function( error ) {
+						result.innerHTML = "테이블 생성 실패 : " + error.message + "<br>";
+					},
+					function() {
+						result.innerHTML = "테이블 생성 성공<br>";
+					}
+				);				
+			}
+			
+			// 가입
+			function insertMember() {
+				var name = inputform.name.value;
+				var age = inputform.age.value;
+				var tel = inputform.tel.value;
+				var address = inputform.address.value;
+				var result = document.getElementById( "result" );
+				if( ! name ) {
+					alert( "이름을 입력하세요" );
+					return;
+				} else if( ! age ) {
+					alert( "나이를 입력하세요." );
+					return;
+				}
+				db.transaction(
+					function( tx ) {
+						tx.executeSql(
+							"insert into member values( ?, ?, ?, ?)",
+							[name, age, tel, address]
+						);						
+					},
+					function( error ) {
+						result.innerHTML = "가입실패 : " + error.message + "<br>";
+					},
+					function() {
+						result.innerHTML = "가입성공 : " + name + "<br>";
+						inputform.name.value = "";
+						inputform.age.value = "";
+						inputform.tel.value = "";
+						inputform.address.value = "";
+					}
+				);				
+			}
+			
+			// 보기
+			function show( tx, rs ) {
+				if( rs.rows && rs.rows.length ) {
+					var t = document.getElementById( "t" );		// tbody
+					t.innerHTML = "";
+					for( var i=0; i<rs.rows.length; i++ ) {
+						var row = t.insertRow();						// tr
+						var col1 = row.insertCell();					// td
+						var col2 = row.insertCell();			
+						var col3 = row.insertCell();
+						var col4 = row.insertCell();
+						col1.innerHTML = rs.rows.item(i).name;
+						col2.innerHTML = rs.rows.item(i).age;
+						col3.innerHTML = rs.rows.item(i).tel;
+						col4.innerHTML = rs.rows.item(i).address;
+					}					
+				}				
+			}
+			
+			function selectMember() {
+				var name = inputform.name.value;
+				var result = document.getElementById( "result" );
+				if( name ) {
+					// 해당 이름만 출력
+					db.transaction(
+						function( tx ) {
+							tx.executeSql(
+								"select * from member where name=?",
+								[name],
+								show
+							);
+						},
+						function( error ) {
+							result.innerHTML = "회원보기 실패 : " + error.message + "<br>";
+						},
+						function() {
+							result.innerHTML = "회원보기 성공<br>";
+						}					
+					);
+					
+				} else {
+					// 전체출력
+					var result = document.getElementById( "result" );
+					db.transaction(						
+						function( tx ) {
+							tx.executeSql(
+								"select * from member",
+								[],
+								show
+							);							
+						},
+						function( error ) {
+							result.innerHTML = "회원보기 실패 : " + error.message + "<br>";
+						},
+						function() {
+							result.innerHTML = "회원보기 성공 <br>";
+						}
+					);					
+					
+				}
+			}
+			
+			// 탈퇴
+			function deleteMember() {
+				var name = inputform.name.value
+				var result = document.getElementById( "result" );
+				if( name ) {
+					db.transaction(
+						function( tx ) {
+							tx.executeSql(
+								"delete from member where name=?",
+								[name]								
+							);		
+						},
+						function( error ) {
+							result.innerHTML = "탈퇴 실패 : " + error.mesage + "<br>";
+						},
+						function() {
+							result.innerHTML = "탈퇴 성공<br>";
+						}
+					);					
+				} else {
+					result.innerHTML = "이름을 입력하세요.<br>";
+				}
+			}
+			
+			// 수정
+			function updateMember() {					
+				var name = inputform.name.value;
+				var age = inputform.age.value;
+				var tel = inputform.tel.value;
+				var address = inputform.address.value;
+				var result = document.getElementById( "result" );
+				if( name && age ) {					
+					db.transaction(
+						function( tx ) {
+							tx.executeSql(
+								"select * from member where name=?",
+								[name],
+								function( tx, rs ) {								
+									if( rs.rows.length == 0 ) {										
+										// 입력한 이름이 없다.
+										result.innerHTML = "입력한 이름이 없습니다.<br>";
+									} else {
+										// 입력한 이름이 있다.
+										tx.executeSql(
+											"update member set age=?, tel=?, address=? where name=?",
+											[age, tel, address, name]		
+										);										
+									}
+								}
+							);
+						},
+						function( error ) {
+							result.innerHTML = "수정실패" + error.message + "<br>";	
+						},
+						function() {
+							// result.innerHTML = "수정성공<br>";
+							inputform.age.value = ""
+							inputform.tel.value = ""
+							inputform.address.value = ""
+						}					
+					);				
+				} else {
+					result.innerHTML = "이름과 나이를 입력하세요.<br>"		
+				}			
+			};
+			
+			
+			
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> Web SQL </h2>
+		<form name="inputform">
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> <input type="text" name="name" autofocus placeholder="필수입력">
+				</tr>
+				<tr>
+					<th> 나이 </th>
+					<td> <input type="text" name="age" placeholder="필수입력">
+				</tr>
+				<tr>
+					<th> 전화번호 </th>
+					<td> <input type="text" name="tel"> </td>
+				</tr>
+				<tr>
+					<th> 주소 </th>
+					<td> <input type="text" name="address">
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="button" value="가입" onclick="insertMember()">	
+						<input type="button" value="보기" onclick="selectMember()">
+						<input type="button" value="수정" onclick="updateMember()">
+						<input type="button" value="탈퇴" onclick="deleteMember()">						
+					</th>
+				</tr>
+			</table>			
+		</form>
+			
+		<br><br>
+		<table border="1">
+			<tr>
+				<th> 이름 </th>
+				<th> 나이 </th>
+				<th> 전화번호 </th>
+				<th> 주소 </th>
+			</tr>
+			<tbody id="t"></tbody>
+		</table>
+		
+		<br><br>
+		<div id="result"></div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

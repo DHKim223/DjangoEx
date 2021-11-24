@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 클래스 연습 </title>
+		<script type="text/javascript">
+			//<!--
+			document.write( "<h2> 클래스 연습 </h2>" );
+			function User( name, age, tel ) {			// 생성자
+				this.name = name;
+				this.age = age;
+				this.tel = tel;
+				/*
+				function getName() {						// 멤버함수 인식할 수 없다.
+					return name;
+				}
+				*/
+				this.getName = function() {
+					return name;
+				}
+				this.getAge = function() {
+					return age;
+				}
+				this.getTel = function() {
+					return tel;
+				}
+			}		
+			var kim = new User( "김유신", 20, "1111-2222" );
+			document.write( "이름 : " + kim.getName() + "<br>" );
+			document.write( "나이 : " + kim.getAge() + "<br>" );
+			document.write( "전화번호 : " + kim.getTel() + "<br>" );
+			
+			document.write( "<br><br>" );
+			
+			function Member( name, age, tel ) {
+				this.name = name;
+				this.age = age;
+				this.tel = tel;
+				this.getName = getName;
+				this.getAge = getAge;
+				this.getTel = getTel;
+			}
+			function getName() {
+				return this.name;
+			}
+			function getAge() {
+				return this.age;
+			}
+			function getTel() {
+				return this.tel;
+			}
+			var lee = new Member( "이순신", 30, "2222-1111" );
+			document.write( "이름 : " + lee.getName() + "<br>" );
+			document.write( "나이 : " + lee.getAge() + "<br>" );
+			document.write( "전화번호 : " + lee.getTel() + "<br>" );
+			 
+			document.write( "<br><br>" );
+			function Customer( name, age, tel ) {
+				this.name = name
+				this.age = age
+				this.tel = tel				
+			}
+			Customer.prototype.getName = function() {
+				return this.name;
+			}
+			Customer.prototype.getAge = function() {
+				return this.age;
+			}
+			Customer.prototype.getTel = function() {
+				return this.tel;
+			}
+			
+			var hong = new Customer( "홍길동", 20, "2222-2222" );
+			document.write( "이름 : " + hong.getName() + "<br>" );
+			document.write( "나이 : " + hong.getAge() + "<br>" );
+			document.write( "전화번호 : " + hong.getTel() + "<br>" );
+			
+			
+			
+			// 이벤트 처리 //
+			document.write( "<br><br>" );
+			document.write( "<h2> 이벤트 처리 </h2>" )
+			// 이벤트 소스 -> 이벤트 리스너 -> 이벤트 핸들러
+			// 태그들 -> 이벤트 리스터 정의 -> 이벤트 핸들러( Javascript 함수 )
+			
+			// window 객체
+			//window.alert()
+			//window.prompt()
+			//window.confirm()
+			//window.print()
+			//window.open()
+			//window.close()
+			
+			function printpage() {
+				if( confirm( "출력할까요?" ) ) {
+					// window.print();
+					window.open();					
+				}				
+			}		
+			
+			function clock() {
+				var now = new Date();
+				var msg = now.getHours() + " : " 
+							+ now.getMinutes() + " : "
+							+ now.getSeconds();
+				document.title = msg
+				window.setTimeout( "clock()", 1000 );			// 재취호출 한번 호출
+			}			
+			
+			function selectbgcolor() {				
+				document.bgColor = inputform.color.value;
+				inputform.color.value = ""
+				inputform.color.focus();
+			}
+			
+			function calc() {
+				a = inputform.a.value
+				b = inputform.b.value
+				if( ! a || ! b ) {
+					alert( "값을 입력하세요" );
+					return;						// 함수를 종료
+				}				
+				if( isNaN( a ) || isNaN( b ) ) {
+					alert( "숫자만 입력하세요" );
+					return;
+				}	
+				inputform.result.value = eval(a) + eval(b);				
+			}
+			
+			function myhobby() {
+				var result = document.getElementById( "result" );
+				var msg = "취미는 "
+				for( var i=0; i<inputform.hobby.length; i++ ) {
+					if( inputform.hobby[i].checked ) {
+						msg += inputform.hobby[i].value + "&nbsp;";
+					}
+				}
+				msg += "입니다."
+				result.innerHTML = msg;
+			}
+						
+			function gosite() {
+				var url = inputform.site.options[ inputform.site.selectedIndex ].value;
+				location.href = url;
+			}
+			//-->
+		</script>
+	</head>
+	<body onload="clock()">
+		<form name="inputform">
+			<div id="result"></div>
+			
+			사이트 :
+			<select name="site">
+				<option value="http://www.daum.net"> 다음 </option>
+				<option value="http://www.naver.com"> 네이버 </option>
+				<option value="http://www.google.com"> 구글 </option>
+				<option value="http://www.nate.com"> 네이트 </option>			
+			</select>	
+			<input type="button" value="선택" onclick="gosite()">	
+		
+			<br><br>
+			취미 :
+			<input type="checkbox" name="hobby" value="게임"> 게임
+			<input type="checkbox" name="hobby" value="독서"> 독서
+			<input type="checkbox" name="hobby" value="운동"> 운동
+			<input type="checkbox" name="hobby" value="캠핑"> 캠핑		
+			<input type="button" value="선택" onclick="myhobby()">
+			
+			<br><br>
+			덧셈 : <input type="text" name="a"> 
+					+ <input type="text" name="b">
+					= <input type="text" name="result" readonly>
+					<input type="button" value="계산" onclick="calc()"> 
+		
+			<br><br>
+			<a onmouseover="javascript:document.bgColor='red'"
+				onmouseout="document.bgColor='white'">빨간색</a> <br>
+			<a onmouseover="document.bgColor='blue'"
+				onmouseout="document.bgColor='white'">파란색</a> <br>
+			<a onmouseover="document.bgColor='yellow'"
+				onmouseout="document.bgColor='white'">노란색</a> <br>
+			<a onmouseover="document.bgColor='green'"
+				onmouseout="document.bgColor='white'">초록색</a> <br>
+				
+			<br>
+			배경색 : <input type="text" name="color">
+					  <input type="button" value="선택" onclick="selectbgcolor()">	
+		
+			<br>
+			출력 : <input type="button" value="출력" onclick="printpage()"> <br>
+		
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+

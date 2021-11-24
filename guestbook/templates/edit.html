@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 방명록 </title>
+	</head>
+	<body>
+		{% block title %}<h2> 글수정 / 글삭제 </h2>{% endblock %}
+		{% block content %}
+		{% csrf_token %}
+		<form method="post" action="update">
+			<input type="hidden" name="idx" value="{{dto.idx}}">
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> {{dto.name}} <br>
+				</tr>
+				<tr>
+					<th> 이메일 </th>
+					<td> <input type="email" name="email" value="{{dto.email}}"> </td>
+				</tr>
+				<tr>
+					<th> 비밀번호 </th>
+					<td> <input type="password" name="passwd" value="{{dto.passwd}}"> </td>
+				</tr>
+				<tr>
+					<th> 내용 </th>
+					<td> <textarea rows="5" cols="30" name="content">{{dto.content}}</textarea> </td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="수정">
+						<input type="button" value="삭제" onclick="location='delete?idx={{dto.idx}}'">	<!-- Get방식 -->	
+						<input type="button" value="목록" onclick="location='guestbook'">
+					</th>
+				</tr>
+			</table>	
+		</form>
+		{% endblock %}
+			
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JQuery </title>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			//<!--
+			$(document).ready(
+				function() {
+					// on() - bind()
+					/*
+					$("h3").on( 
+						"click", 
+						function( event ) {
+							$("#addh3").append( "<h3>" + $(this).text() + "</h3>" );	
+						} 					
+					);
+					*/
+										
+					// on() - live() / delegate()
+					/*
+					$("div").on( 
+						"click", 
+						"h3", 
+						function( event ) {
+							$("#addh3").append( $(this).clone() );
+						} 
+					);
+					*/
+					
+					// click(function(event) {})			bind() 역할
+					$("h3").click(
+						function( event ) {
+							$("#addh3").append( $(this).clone() );
+						}		
+					);
+										
+					// off()
+					setTimeout( function() {
+						$("div").off("click");		
+					}, 5000 );
+					
+					
+					// 마우스 이벤트
+					var msg = "";
+					$("#outer").mouseover( 
+						function() {
+							msg += "mouseover<br>";
+							$("#result").html( msg );
+						} 
+					).mouseenter(
+						function() {
+							msg += "mouseenter<br>";
+							$("#result").html( msg );
+						}		
+					).mouseout( 
+						function() {
+							msg += "mouseout<br>";
+							$("#result").html( msg );
+						}		
+					);
+					
+				}
+			);
+			
+			
+			
+			
+			//-->
+		</script>	
+		<style type="text/css">
+			#outer {
+				width : 200px;
+				height : 200px;
+				background : cyan;
+				padding : 50px;
+				margin : 10px;
+			}
+			#inner {
+				width : 100%;
+				height : 100%;
+				background : blue;
+			}
+		</style>					
+	</head>
+	<body>
+	<h2> 이벤트 - on() / off()</h2>
+	
+	<div id="outer">
+		<div id="inner">
+		</div>	
+	</div>
+	<br><br>
+	<div id="result"></div>
+	
+	<br><br>
+	<div id="addh3">
+		<h3> 독서 </h3>
+		<h3> 등산 </h3>
+		<h3> 게임 </h3>
+		<hr size="3" color="red" noshade width="80%">
+		
+	</div>
+
+	</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'style_member.css' %}">
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script src="{% static 'script_member.js' %}"></script>
+		<title> 회원관리 </title>
+	</head>
+	<body>
+		<h2> 회원가입 </h2>
+		{% csrf_token %}
+		<form name="registerform" method="post" action="registerpro" onsubmit="return check()">
+			<table>
+				<tr>
+					<th> * 아이디 </th>
+					<td> 
+						<input class="input" type="text" name="id" autofocus>
+						<input class="input" type="button" value="중복확인" onclick="confirm()">
+					</td>
+				</tr>
+				<tr>
+					<th rowspan="2">  * 비밀번호 </th>
+					<td><input class="input" type="password" name="passwd"></td>
+				</tr>
+				<tr>
+					<td> <input class="input" type="password" name="passwd1"> </td>
+				</tr>
+				<tr>
+					<th> * 이름 </th>
+					<td> <input class="input" type="text" name="name"></td>
+				</tr>
+				<tr>
+					<th> * 학번 </th>
+					<td> 
+						<input class="input" type="text" name="student_id" maxlength="10" onkeyup="sidcheck()">
+						<div id="sid_result"></div>
+					</td>
+				</tr>
+				<tr>
+					<th> * 학과 </th>
+					<td>&nbsp;
+						<select name="department" class="input">
+							<option value="경영학과"> 경영학과 </option>
+    						<option value="화학과"> 화학과 </option>
+    						<option value="전자공학과"> 전자공학과 </option>
+    						<option value="컴퓨터공학과"> 컴퓨터공학과 </option>
+    						<option value="사회학과"> 사회학과 </option>
+    						<option value="회화과"> 회화과 </option>
+    						<option value="무용과"> 무용과 </option>
+    						<option value="체육교육과"> 체육교육과 </option>
+    						<option value="법학과"> 법학과 </option>
+						</select>
+					</td>					
+				</tr>
+				<tr>
+					<th> * 학년 </th>
+					<td>&nbsp;
+						<select name="grade" class="input">
+						    <option value="선택안함"> 선택안함 </option>
+    						<option value="1학년"> 1학년 </option>
+    						<option value="2학년"> 2학년 </option>
+    						<option value="3학년"> 3학년 </option>
+    						<option value="4학년"> 4학년 </option>
+    						<option value="졸업생"> 졸업생 </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th> * 권한 </th>
+					<td>&nbsp;
+						<select name="level" class="input">
+							<option value="3"> LV3_미인증사용자 </option>
+    						<option value="2"> LV2_인증사용자 </option>
+    						<option value="1"> LV1_관리자 </option>
+    						<option value="0"> LV0_개발자 </option>   
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input class="inputbutton" type="submit" value="가입">
+						<input class="inputbutton" type="reset" value="취소">
+						<input class="inputbutton" type="button" value="가입취소" onclick="location='mainpage'">
+					</th>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

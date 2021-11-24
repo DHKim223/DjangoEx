@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ajax</title>
+		<script type="text/javascript">
+			// <!--
+			var httpRequest = null;
+			function show() {
+				if( window.ActiveXObject ) {
+					// IE
+					try {
+						httpRequest = new ActiveXObject( "Msxml2.XMLHTTP" );
+					} catch( e ) {
+						httpRequest = new ActiveXObject( "Microsoft.XMLHTTP" );	
+					}					
+				} else {
+					httpRequest = new XMLHttpRequest();
+				}
+				httpRequest.onreadystatechange = result;
+				httpRequest.open( "GET", "ajax1", true );
+				httpRequest.send( null );
+			}
+			function result() {		// readyState 상태가 변화될 때마다 호출
+				// alert( httpRequest.readyState );
+				var result = document.getElementById( "result" );
+				var msg = "";
+				if( httpRequest.readyState == 4 ) {
+					// 완료
+					if( httpRequest.status == 200 ) {
+						// 정상종료
+						msg += "정상종료";
+						
+						result.innerHTML = msg;
+					} else {
+						// 비정상종료
+						result.innerHTML = httpRequest.status + " : 에러발생";
+					}					
+				} else {
+					result.innerHTML = httpReqeust.readyState + " : 통신중";
+				}				
+			}		
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> Asynchronous Javascript and XML - Javascript </h2>
+		전송 : <input type="button" value="전송" onclick="show()"> <br>
+		<br>
+		<div id="result"></div>		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

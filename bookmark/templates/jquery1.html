@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JQuery 1 </title>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			// <!--
+			document.write( "<h2> Simple JQuery </h2>" )
+			// window.onload = alert( "2 시작" );
+			
+			$(document).ready(			// onload		함수형언어 lambda 
+				function() {		
+					// alert( "3 시작" );	
+					
+					// HTML				내용
+					// CSS				모양(정적인)
+					// Javascript			이벤트 처리
+					// JQuery			모양(동적인)
+					
+					// 전체 선택자
+					$( "*" ).css( "color", "red" );
+					
+					// 태그 선택자
+					$("h3").css( "color", "blue" );
+					$("h2").css( "color", "green" );
+					$("h2, h3").css( "color", "yellow" );
+					
+					// 아이디 선택자
+					$("#point").css( "color", "lime" );
+					
+					// 클래스 선택자
+					$(".a").css( "color", "cyan" );
+					$("h3.b").css( "color", "magenta" );
+					
+					// 후손 선택자
+					$("a").css( "color", "red" );
+					$("h3 a").css( "color", "blue" );
+					
+					// 자식 선택자
+					$("h3 > a").css( "color", "green" );
+					
+					// 속성 선택자
+					// inputform.name.value = "필수입력";
+					// $("input[type=text]").val( "필수입력" );
+					// $("input[name=name]").val( "필수입력" )
+					// $("input[name~=name]").val( "필수입력" )		// 포함
+					// $("input[name^=na]").val( "필수입력" )			// 시작
+					// $("input[name$=me]").val( "필수입력" )			// 끝
+					$("input[name*=am]").val( "필수입력" )				// 포함
+					
+					// 필터 선택자
+					var result = document.getElementById( "result" );
+					
+					setTimeout(
+						function() {
+							var msg = "성별 : " + $("input:radio:checked").val() + "<br>"
+									+ "취미 : " + $("input:checkbox:checked").val() + "<br>";
+							result.innerHTML = msg;
+						}, 3000
+					);
+					
+					var cnt = 0;
+
+					document.write( "<table border='1'>" );
+					for( var i=0; i<10; i++ ) {
+						document.write( "<tr>" );
+						for( var j=0; j<10; j++ ) {
+							document.write( "<th>" );
+								document.write( ++cnt );
+							document.write( "</th>" );
+						}
+						document.write( "</tr>" );
+					}
+					document.write( "</table>" );
+
+					$("tr:odd").css( "background", "gray" );
+					$("tr:even").css( "background", "lightgray" );
+					$("tr:first").css( "color", "red" );
+					$("tr:last").css( "color", "red" );
+					$("th:contains(50)").css("color", "blue" );
+					$("th:lt(50)").css( "color", "yellow" );
+					$("th:gt(50)").css( "color", "green" );
+					
+					
+				} 
+			);		
+			
+			//-->
+		</script>
+	</head>
+	<body> <!-- onload="alert('1 시작')" -->
+	
+		<div id="result">
+		</div>
+		<br><br>
+	
+		<form name="inputform">
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> <input type="text" name="name"> </td>
+				</tr>
+				<tr>
+					<th> 나이 </th>
+					<td> <input type="text" name="age"> </td>
+				</tr>
+				<tr>
+					<th> 성별 </th>
+					<td>
+						<input type="radio" name="gender" value="남자"> 남자
+						<input type="radio" name="gender" value="여자"> 여자
+					</td>
+				</tr>
+				<tr>
+					<th> 취미 </th>
+					<td>
+						<input type="checkbox" name="hobby" value="게임"> 게임
+						<input type="checkbox" name="hobby" value="독서"> 독서
+						<input type="checkbox" name="hobby" value="등산"> 등산
+						<input type="checkbox" name="hobby" value="운동"> 운동
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="전송">
+						<input type="reset" value="취소">
+					</th>
+				</tr>			
+			</table>		
+		</form>	
+	
+	
+		<br><br>
+		<h3> Java </h3>	
+		<h3 id="point"> <a> Python </a> </h3>
+		<h3 class="a"> <b> <a> Javascript </a> </b> </h3>
+		<h3 class="a b"> <p> <a> JQuery </a> </p> </h3>	
+	</body>
+</html>
+
+
+
+
+

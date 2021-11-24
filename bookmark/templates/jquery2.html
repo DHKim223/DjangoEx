@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JQuery 함수 </title>
+		<script src="{% static 'jquery-3.6.0.js'%}"></script>
+		<script type="text/javascript">
+			// <!--
+			jQuery(document).ready(
+				function() {
+					var result = document.getElementById( "result" );
+					var msg = "";
+					// $.each( object, function( index, item ){} )
+					var m = [10, 20, 30, 40, 50];
+					for( var i=0; i<m.length; i++ ) {
+						msg += m[i] + "&nbsp;";
+					}
+					msg += "<br>";
+					
+					$.each( m, 
+						function( index, item ){
+							// msg += m[index] + "&nbsp;";
+							// msg += item + "&nbsp;";
+							msg += this + "&nbsp;";
+						}
+					);
+					msg += "<br>";
+										
+					// $(selector).each( function( index, item ) {} )
+					$("h4").each( 
+						function( index, item ) {
+							if( index % 2 == 0 ) {
+								// $(item).css( "color", "red" );
+								$(this).css( "color", "red" );
+							}
+						}		
+					);
+					
+					// $.extend() 		속성을 추가
+					var kim = new Object();
+					kim.name = "김유신";
+					kim.age = 30;
+					kim.tel = "1111-2222";
+					kim.getName = function() {
+						return this.name;
+					}
+					kim.getAge = function() {
+						return this.age;
+					}
+					kim.getTel = function() {
+						return this.tel;
+					}
+					
+					msg += "이름 : " + kim.getName() + "<br>"
+						+ "나이 : " + kim.getAge() + "<br>"
+						+ "전화번호 : " + kim.getTel() + "<br>";
+					
+					var lee = new Object();
+					$.extend(
+						lee,
+						{
+							"name": "이순신",
+							"age": 30,
+							"tel" : "2222-3333",
+							"getName" : function() {
+								return this.name;	
+							},
+							"getAge" : function() {
+								return this.age;
+							},
+							"getTel" : function() {
+								return this.tel;
+							}							
+						}
+					);
+					msg += "이름 : " + lee.getName() + "<br>"
+						+ "나이 : " + lee.getAge() + "<br>"
+						+ "전화번호 : " + lee.getTel() + "<br>";
+					
+					// $(selector).filter(selector)
+					$("h4:odd").css( "color", "red" );
+					$("h4").filter(":even").css("color", "blue" );	// 체이닝
+					$("h4").filter(":even").css("color", "blue" ).css("background", "gray");
+					$("h4").filter(":even").css(
+						{
+							"color": "blue",
+							"background":"gray",
+						}		
+					);
+					
+					// $(selector).filter( function(index) {} )
+					$("h4").filter( function( index) {
+							return index%2 == 0
+						} 
+					).css( "color", "green" );
+					
+					// .end()					전 단계로 
+					$("h4").filter(":even").filter(":odd").css("color", 'yellow');
+					$("h4").filter(":even").end().filter(":odd").css("color", 'yellow');
+					
+					// .eq() .first() .last()
+					$("h4").first().css( "color", "red" );  
+					$("h4").last().css( "color", "red" );  
+					$("h4").eq(1).css( "color", "red" ); 
+					
+					// .is()
+					$("h4").each( function( index, item ) {
+							if( $(item).is(".select") ) {
+								$(item).css( {
+									"color" : "white",
+									"background" : "black",
+									} 
+								);
+							}
+						}
+					);
+					
+					// find()			XML 데이터 처리
+					var data = "<books>"
+							+ 		"<book>"
+							+ 			"<name>Java</name>"
+							+			"<author>홍길동</author>"
+							+			"<price>20,000</price>"
+							+ 		"</book>"
+							+ 		"<book>"
+							+ 			"<name>Python</name>"
+							+			"<author>이순신</author>"
+							+			"<price>30,000</price>"
+							+ 		"</book>"
+							+ 		"<book>"
+							+ 			"<name>JQuery</name>"
+							+			"<author>김유신</author>"
+							+			"<price>40,000</price>"
+							+ 		"</book>"
+							+ "</books>";
+					var xmldoc = $.parseXML( data );
+					
+					// Javascript DOM
+					var booklist = xmldoc.getElementsByTagName( "book" );
+					var namelist = xmldoc.getElementsByTagName( "name" );
+					var authorlist = xmldoc.getElementsByTagName( "author" );
+					var pricelist = xmldoc.getElementsByTagName( "price" );
+					msg += "<br><br>";
+					for( var i=0; i<booklist.length; i++ ) {
+						msg += "제목 : " + namelist.item(i).firstChild.nodeValue + "<br>"
+							+ "저자 : " + authorlist.item(i).firstChild.nodeValue + "<br>"
+							+ "가격 : " + pricelist.item(i).firstChild.nodeValue + "<br><br>";
+					}
+					
+					// JQuery find
+					$(xmldoc).find( "book" ).each(
+						function( index, item ) {
+							msg += "제목 : " + $(item).find("name").text() + "<br>"
+								+ "저자 : " + $(item).find("author").text() + "<br>"
+								+ "정가 : " + $(item).find("price").text() + "<br><br>";
+						}		
+					);
+									
+					
+					// find()			JSON 데이터 처리
+					var books = "<data>"
+								+ 	"<![CDATA["
+								+		"["
+								+			"{"
+								+				"title:'Java',"
+								+				"author:'홍길동',"
+								+				"price:'20,000',"
+								+			"},"	
+								+			"{"
+								+				"title:'Python',"
+								+				"author:'이순신',"
+								+				"price: '30,000',"
+								+			"},"
+								+			"{"
+								+				"title:'JQuery',"
+								+				"author:'김유신',"
+								+				"price:'40,000',"
+								+			"}"
+								+		"]"	
+								+	"]]>"
+								+ "</data>"
+					var jsondoc = $.parseXML( books );
+								
+					// DOM
+					msg += "<br><br>";
+					var list = eval( "(" + jsondoc.getElementsByTagName( "data" ).item(0).firstChild.nodeValue + ")" );					
+					for( var i=0; i<list.length; i++ ) {
+						msg += "제목 : " + list[i].title + "<br>"
+							+ "저자 : " + list[i].author + "<br>"
+							+ "가격 : " + list[i].price + "<br><br>";
+					}
+									
+					// find()
+					var jsonlist = eval( "(" + $(jsondoc).find( "data" ).text() + ")" )
+					for( var i=0; i<jsonlist.length; i++ ) {
+						msg += "제목 : " + jsonlist[i].title + "<br>"
+							+ "저자 : " + jsonlist[i].author + "<br>"
+							+ "가격 : " + jsonlist[i].price + "<br><br>";
+					}
+					
+					
+					
+					msg += "<br><br>";
+					result.innerHTML = msg;
+				}		
+			);			
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> JQuery 함수 </h2>
+		<h4> 사과 </h4>		
+		<h4 class="select"> 딸기 </h4>
+		<h4> 배 </h4>
+		<h4> 바나나 </h4>	
+		
+		<div id="result"></div>
+	</body>
+</html>
+
+
+

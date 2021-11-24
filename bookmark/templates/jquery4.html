@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JQuery </title>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			//<!--
+			$(document).ready(
+				function() {
+					// html()			HTML 태그로 인식 
+					// text()			Text로 인식
+					// var result = document.getElementById( "result" );
+					var msg = ""
+					msg += "HTML : " + $("h5").first().html() + "<br>"
+						+ "Text : " + $("h5").first().text() + "<br><br>";
+					
+					// html( value ) / text( value )					
+					$("#result").html( msg ); 					
+					// $("#result").text( msg );
+					
+					// html( function( index, html ) {} )
+					// text( function( index, text ) {} )
+					
+					// 객체 삭제
+					$("h5").last().remove();
+					
+					$("h5").text( function( index, text ) {
+							msg += index + " : " + text + "<br>";
+						} 
+					);									
+					$("#result").html( msg ); 
+					
+					// append() prepend() before() after()			A <- B
+					$("#first").append( "<b>append</b>" );
+					$("#first").prepend( "<b>prepend</b>" );
+					$("#first").before( "<b>before</b>" );
+					$("#first").after( "<b>after</b>" );
+							
+					// appendTo() prependTo() insertBefore() insertAfter() 	A -> B
+					$("<b>appendTo</b>").appendTo( "#second" );
+					$("<b>prependTo</b>").prependTo( "#second" );
+					$("<b>insertBefore</b>").insertBefore( "#second" );
+					$("<b>insertAfter</b>").insertAfter( "#second" );
+					
+					// after( function( index ) {} )
+					var m = [
+						{"name":"홍길동", "age":30},
+						{"name":"김유신", "age":20},
+						{"name":"이순신", "age":10}						
+					];
+					/*
+					$("div").after( function(index) {
+							return "이름 : " + m[index].name + "&nbsp;&nbsp;"
+								+ "나이 : " + m[index].age
+						} 
+					);
+					*/
+					
+					// 문서 객체 이동
+					$("<img>").attr(
+						{
+							"src" : "{% static 'a.jpg' %}",
+							"width" : "200",
+							"height" : "150",
+						}		
+					).insertBefore( "#image" );
+					$("<img>").attr(
+						{
+							"src" : "{% static 'b.jpg' %}",
+							"width" : "200",
+							"height" : "150",
+						}		
+					).insertBefore( "#image" );
+					$("<img>").attr(
+						{
+							"src" : "{% static 'c.jpg' %}",
+							"width" : "200",
+							"height" : "150",
+						}		
+					).insertBefore( "#image" );
+					
+					setInterval( function() {
+						$("img").first().appendTo( "#image" );						
+						// $("#image").append( $("img").first().clone() );
+					}, 1000 );
+					
+					
+					
+					// result.innerHTML = msg;
+					
+					
+				}
+			);
+			//-->
+		</script>				
+	</head>
+	<body>
+		<h2> 문서 객체 생성 </h2>
+		<div id="image"></div>
+		
+		<br><br>
+		<div></div>
+		<div></div>
+		<div></div>
+		<br><br>
+		
+		<hr id="first" size="3" color="red" noshade width="80%" align="left">
+		
+		<br><br>
+		<hr id="second" size="3" color="blue" noshade width="80%" align="left">
+
+		<br><br>
+	
+		<h2> JQuery 객체 내부 검사 </h2>
+		<div id="result"></div>
+		<br><br>		
+		<h5><b>첫번째</b></h5>
+		<h5>두번째</h5>
+		<h5>세번째</h5>
+	</body>
+</html>
+

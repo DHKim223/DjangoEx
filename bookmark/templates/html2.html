@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Drag & Drop </title>
+		<style type="text/css">
+			div {
+				width : 200px;
+				height : 300px;
+				float : left;
+				margin : 5px;
+			}			
+			#blue { border : 1px blue solid; }
+			#red { border : 1px red solid;  }
+			#green { border : 1px green solid;  }
+			h2 { clear : left;}
+		</style>
+		<script type="text/javascript">
+			// <!--
+			function drag( target, event ) {
+				event.dataTransfer.setData( "id", target.id );
+			}
+			function drop( element, event ) {
+				var targetid = event.dataTransfer.getData( "id" );				// id
+				var targetelement = document.getElementById( targetid );		// img
+				element.appendChild( targetelement );			
+			}
+			
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> Drag & Drop </h2>
+		<div id="blue" ondrop="drop(this, event)" 
+			ondragenter="return false" ondragover="return false"></div>
+		<div id="red"ondrop="drop(this, event)" 
+			ondragenter="return false" ondragover="return false">
+			<span id="move" draggable="true" ondragstart="drag(this, event)"> 이동 </span>	
+		</div>
+		<div id="green"ondrop="drop(this, event)" 
+			ondragenter="return false" ondragover="return false">
+			<img id="target" src="{% static 'love.png' %}" border="0" width="200" height="300"
+				draggable="true" ondragstart="drag(this, event)">
+		</div>	
+		
+		<br><br>
+		<h2> 웹 스토리지 - Local Storage </h2>
+		<script type="text/javascript">
+			// <!--
+			function savemsg() {				
+				if( ! window.localStorage ) {
+					result.innerHTML = "Local Storage를 지원하지 않습니다.";
+					return;
+				}
+				var result = document.getElementById( "result" );	
+				var input = document.getElementById( "input" );
+				localStorage.setItem( "msg", input.value );
+				result.innerHTML = "저장했습니다.<br>";				
+			}		
+			
+			function loadmsg() {
+				var output = document.getElementById( "output" );
+				var result = document.getElementById( "result" );
+				var msg = ""
+				for( var i=0; i<localStorage.length; i++ ) {
+					var key = localStorage.key(i);
+					var value = localStorage[key];
+					msg += key + " : " + "<pre>" + value + "</pre><br>"
+				}				
+				output.innerHTML = msg;
+				result.innerHTML = "가져왔습니다.<br>"
+			}
+			
+			function deletemsg() {				
+				var result = document.getElementById( "result" );
+				var output = document.getElementById( "output" );
+				var input = document.getElementById( "input" );				
+				result.innerHTML = "삭제했습니다.<br>"
+				output.innerHTML = "";
+				input.value = "";	
+				localStorage.removeItem( "msg" );
+			}
+			
+			//-->
+		</script>
+				
+		<table border="1">
+			<tr>
+				<td> <textarea id="input" rows="10" cols="50" autofocus 
+					onkeyup="savemsg()"></textarea>
+			</tr>
+			<tr>
+				<th>
+					<input type="button" value="가져오기" onclick="loadmsg()">
+					<input type="button" value="삭제하기" onclick="deletemsg()">
+				</th>
+			</tr>
+		</table>
+		<br><br>
+		<div id="output"></div>
+		<br><br>
+		<div id="result"></div>
+		
+		<br><br>
+		<h2> 웹 스토리지 - sessionStorage </h2>
+		<script type="text/javascript">
+			// <!--
+			window.onload = function() {
+				var console = document.getElementById( "console" );
+				if( window.sessionStorage ) {
+					console.innerHTML = "지원하는 브라우저입니다.<br>";
+				} else {
+					console.innerHTML = "지원하지 않는 브라우저입니다.<br>";
+					return;
+				}
+			}
+			
+			function savedata() {
+				var read = document.getElementById( "read" );
+				var console = document.getElementById( "console" );				
+				var data = read.value;
+				if( data ) {
+					sessionStorage.setItem( "data", data );
+					console.innerHTML = "저장했습니다.";
+					read.value = "";
+				} else {
+					console.innerHTML = "데이터를 입력하세요.";
+				}
+			}
+			
+			function loaddata() {
+				var data = sessionStorage.getItem( "data" );
+				var read = document.getElementById( "read" );
+				read.value = data;
+				var console = document.getElementById( "console" );
+				console.innerHTML = "가져왔습니다.";				
+			}
+			
+			function deletedata() {
+				var read = document.getElementById( "read" );
+				var console = document.getElementById( "console" );
+				read.value = "";
+				sessionStorage.removeItem( "data" );
+				console.innerHTML = "삭제했습니다.";
+			}
+			//-->
+		</script>
+		<table border="1">
+			<tr>
+				<th> <textarea id="read" rows="5" cols="30"></textarea> </th>				
+			</tr>		
+			<tr>
+				<th>
+					<input type="button" value="저장하기" onclick="savedata()">
+					<input type="button" value="가져오기" onclick="loaddata()">
+					<input type="button" value="삭제하기" onclick="deletedata()">					
+				</th>
+			</tr>
+		</table>
+		<div id="console"></div>
+		<br>
+		
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+

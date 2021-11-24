@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'style_member.css'%}">
+		<title> 회원관리 </title>		
+	</head>
+	<body>
+		<h2> 메인 페이지 </h2>
+		{% if not memid %}
+		<!-- 로그아웃 상태 -->		
+		<form method="post" action="loginpro">
+			<table>
+				<tr>
+					<th colspan="2">
+						회원이 아니시면 회원가입을 해주세요
+					</th> 
+				</tr>			
+				<tr>
+					<th> 아이디 </th>
+					<td> 
+						<input class="input" type="text" name="id" autofocus>
+					</td>
+				</tr>
+				<tr>
+					<th> 비밀번호 </th>
+					<td> <input class="input" type="password" name="passwd"> </td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input class="inputbutton" type="submit" value="로그인">
+						<input class="inputbutton" type="reset" value="취소">
+						<input class="inputbutton" type="button" value="회원가입"
+							onclick="location='register'">
+					</th>
+				</tr>
+			</table>		
+		</form>
+		{% endif %}
+		{% if memid %}
+			<table>
+				<tr>
+					<th style="width:300px"> <span>{{memid}}</span> 님 안녕하세요. </th>
+				</tr>
+				<tr>
+					<th>
+						<input class="inputbutton" type="button" value="정보수정"
+							onclick="location='modify'">
+						<input class="inputbutton" type="button" value="회원탈퇴"
+							onclick="location='delete'">
+						<input class="inputbutton" type="button" value="로그아웃" 
+							onclick="location='logout'">
+					</th>						
+				</tr>			
+			</table>
+		{% endif %}		
+	</body>
+</html>
+

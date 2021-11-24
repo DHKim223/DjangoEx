@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>회원관리</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'style_member.css'%}">
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script src="{% static 'script_member.js'%}"></script>
+	</head>
+	<body>
+		<h2> 회원정보수정 </h2>
+		{% csrf_token %}
+		<form method="post" action="modifypro" onsubmit="return change()">
+			<table>
+				<tr>
+					<th> 아이디 </th>
+					<td> &nbsp;{{ dto.id }} </td>
+				</tr>
+				<tr>
+					<th rowspan="2"> 비밀번호 </th>
+					<td> 
+						<input class="input" type="password" name="passwd" autofocus
+							value="{{dto.passwd}}"> 
+					</td>
+				</tr>
+				<tr>
+					<td> 
+						<input class="input" type="password" name="passwd1" value="{{dto.passwd}}"> 
+					</td>
+				</tr>
+				<tr>
+					<th> 이름 </th>
+					<td> &nbsp;{{ dto.name }} </td>
+				</tr>
+				<tr>
+					<th> 학번 </th>
+					<td> &nbsp;{{ dto.student_id }} </td>
+				</tr>
+				<tr>
+					<th> 학과 </th>
+					<td>&npsp;
+						<select name="department" class="input">
+							<option value="경영학과"> 경영학과 </option>
+    						<option value="화학과"> 화학과 </option>
+    						<option value="전자공학과"> 전자공학과 </option>
+    						<option value="컴퓨터공학과"> 컴퓨터공학과 </option>
+    						<option value="사회학과"> 사회학과 </option>
+    						<option value="회화과"> 회화과 </option>
+    						<option value="무용과"> 무용과 </option>
+    						<option value="체육교육과"> 체육교육과 </option>
+    						<option value="법학과"> 법학과 </option>
+						</select>
+					</td>							
+				</tr>
+				<tr>
+					<th> 학년 </th>
+					<td>&npsp;
+						<select name="grade" class="input">
+						    <option value="선택안함"> 선택안함 </option>
+    						<option value="1학년"> 1학년 </option>
+    						<option value="2학년"> 2학년 </option>
+    						<option value="3학년"> 3학년 </option>
+    						<option value="4학년"> 4학년 </option>
+    						<option value="졸업생"> 졸업생 </option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th> 권한 </th>
+					<td>&nbsp;
+						<select name="level" class="input">
+							{% if dto.level == "3" %}
+								<option value="3" selected> LV3_미인증사용자 </option>
+							{% endif %}
+							{% if dto.level != "3" %}
+								<option value="3"> LV3_미인증사용자 </option>
+							{% endif %}	
+							{% if dto.level == "2" %}
+								<option value="2" selected> LV2_인증사용자 </option>
+							{% endif %}
+							{% if dto.level != "2" %}
+								<option value="2"> LV2_인증사용자 </option>
+							{% endif %}
+							{% if dto.level == "1" %}
+								<option value="1" selected> LV1_관리자 </option>
+							{% endif %}
+							{% if dto.level != "1" %}
+								<option value="1"> LV1_관리자 </option>
+							{% endif %}		   						
+							{% if dto.level == "0" %}
+								<option value="0" selected> LV0_개발자 </option>
+							{% endif %}
+							{% if dto.level != "0" %}
+								<option value="0"> LV0_개발자 </option>
+							{% endif %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th colspan ="2">
+						<input class = "inputbutton" type="submit" value="수정">
+						<input class = "inputbutton" type = "reset" value="취소">
+						<input class = "inputbutton" type = "button" value="수정취소" onclick="location='mainpage' ">
+					</th>
+				</tr>
+			</table>		
+		</form>
+	</body>
+</html>
+
+
+
+
+
+

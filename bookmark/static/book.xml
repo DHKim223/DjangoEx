@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+	<![CDATA[
+		[
+			{
+				title : "Java 입문",
+				author : "홍길동",
+				price : "20,000",
+			},
+			{
+				title : "Python 활용",
+				author : "이순신",
+				price : "20,000",		
+			},
+			{
+				title : "JQuery 프로그래밍",
+				author : "김유신",
+				price : "20,000",		
+			}
+		]
+	]]>
+</book>

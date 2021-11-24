@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> JQuery </title>
+		<style type="text/css">
+			.reverse {
+				color : white;
+				background : black;
+			}
+		</style>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			//<!--
+			$(document).ready(
+				function() {
+					// bind() 			이벤트 연결
+					// unbind() 		이벤트 해제
+					// bind( eventname, function( event ) {} )
+					$("h4").bind( 
+						"click", 
+						function( event ) {
+							$(this).html( 
+								function( index, html) {
+									return html + "★"									
+								} 							
+							);
+						} 
+					);
+					
+					// bind( object )
+					$("h4").bind(
+						{
+							"mouseover" : function( event ) {
+								$(this).addClass("reverse");	
+							},
+							"mouseout" : function( event ) {
+								$(this).removeClass("reverse");
+							},
+						}		
+					);
+					
+					// unbind()
+					$("h4").last().unbind( "click" );
+					
+					// one()				 한 번만 동작하는 이벤트
+					$("h2").one( 
+						"click", 
+						function( event ) {
+							alert( "제목" );
+						} 
+					);
+					
+					// trigger( eventname )
+					setInterval( 
+						function() {
+							$("h4").first().trigger( "click" );
+						}, 
+						1000 
+					);
+					
+					// trigger( eventname, data )
+					$("h3").bind( 
+						"click",
+						function( event, data1, data2 ) {
+							$(this).html( $(this).text() + data1 + data2 ); 
+						}
+					);
+					setInterval( function() {
+						$("h3").trigger( "click", ["♡", "♥"] );
+					}, 1000 );
+					
+				}
+			);
+			
+			/*
+			function addtext() {
+				$("h4").each( 
+					function( index,item ) {
+						$(item).text( $(item).text() + "☆" );
+					} 
+				);
+			}
+			*/
+			
+			//-->
+		</script>				
+	</head>
+	<body>
+		<h2> JQuery 이벤트 - bind() / unbind() </h2>
+		<h3> 사과 </h3>
+		<h3> 딸기 </h3>
+		<h3> 바나나 </h3>
+		<br><br>
+		
+		<h4 onclick="addtext()"> 첫번째 </h4>	
+		<h4 onclick="addtext()"> 두번째 </h4>
+		<h4 onclick="addtext()"> 세번째 </h4>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

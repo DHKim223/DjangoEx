@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 방명록 </title>
+	</head>
+	<body>
+		{% block title %} <h2>방명록</h2> {% endblock %}
+		
+		{% block sidebar %}
+			<ul>
+				<li> 방명록 </li>
+				<li> 회원관리 </li>
+				<li> 게시판 </li>
+			</ul>			
+		{% endblock %}
+		
+		{% block content %}
+			방명록을 작성해주세요 <br>
+		{% endblock %}	
+	</body>
+</html>

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Ajax</title>
+		<script src="{% static 'jquery-3.6.0.js' %}"></script>
+		<script type="text/javascript">
+			// <!--
+			$(document).ready(
+				function() {
+					// onload
+					/*
+					$.ajax(
+						{
+							url : "user",				// 처리 페이지 
+							dataType : "text",
+							success : function( data ) {
+								// $("#result").html( data + "<br>" );
+								// $("#result").html( "정상종료<br>" );
+							},
+							error : function( e ) {
+								$("#result").html( e.responseText + "<br>" );
+							}
+						}				
+					);
+					*/
+					
+					// onclick
+					$("input[value='전송']").on(
+						"click",
+						function( event ) {
+							// var params = "name=" + $("input[name='name']").val()
+							//			+ "&age=" + $("input[name='age']").val();
+						
+							$.ajax( 
+								{
+									url : "user",
+									data : $("form").serialize(),
+									dataType : "text",
+									success : function( data ) {
+										$("#result").html( data );
+									},
+									error : function( e ) {
+										$("#result").html( e.responseText );	
+									}								
+								}		
+							);
+							
+						}
+					);
+					
+					
+				}				
+			);
+			
+			//-->
+		</script>
+	</head>
+	<body>
+		<h2> Ajax - JQuery </h2>
+		<form name="inputform">
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> <input type="text" name="name"> </td>
+				</tr>				
+				<tr>
+					<th> 나이 </th>
+					<td> <input type="text" name="age"> </td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="button" value="전송"> 
+					</th>
+				</tr>
+			</table>		
+		</form>	
+		<br><br>	
+		
+		<div id="result"></div>
+		<br><br>
+	
+	</body>
+</html>
+
+
+
+
+
+

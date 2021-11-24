@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> 글쓰기 </title>
+	</head>
+	<body>
+		<h2> 글쓰기 </h2>
+		<form method="post" action="writepro">
+			{% csrf_token %}
+			<table border="1">
+				<tr>
+					<th> 이름 </th>
+					<td> <input type="text" name="name" autofocus placeholder="필수항목"> </td>
+				</tr>
+				<tr>
+					<th> 이메일 </th>
+					<td> <input type="email" name="email" placeholder="필수항목"> </td>
+				</tr>
+				<tr>
+					<th> 비밀번호 </th>
+					<td> <input type="password" name="passwd" placeholder="필수항목"> </td>					
+				</tr>
+				<tr>
+					<th> 내용 </th>
+					<td>
+						<textarea rows="5" cols="30" name="content" placeholder="필수항목"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="저장">
+						<input type="reset" value="취소">
+					</th>
+				</tr>
+			</table>			
+		</form>		
+	</body>
+</html>
+
+
